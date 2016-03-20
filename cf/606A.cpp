@@ -1,0 +1,63 @@
+///////////////////////////////////////
+//    Author : Dhruv Khattar        //
+/////////////////////////////////////
+
+#include<bits/stdc++.h>
+
+#define mod 1000000007
+#define rep(i,j,N) for( int i=j ; i<N ; i++ )
+#define rrep(i,N,j) for( int i=N-1 ; i>=j ; i-- )
+#define si(i) scanf("%d",&i)
+#define sl(i) scanf("%lld",&i)
+#define pi(i) printf("%d",i)
+#define pl(i) printf("%lld",i)
+#define pin(i) printf("%d\n",i)
+#define pln(i) printf("%lld\n",i)
+#define ps printf(" ")
+#define pn printf("\n")
+#define pb push_back
+#define mp make_pair
+#define ff first
+#define ss second
+#define sz(a) int((a).size())
+#define tr(c,i) for(typeof((c).begin())i = (c).begin(); i != (c).end(); i++) 
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+#define present(a,x) (find(all(a),x) != (a).end())
+#define cpresent(c,x) ((c).find(x) != (c).end()) 
+
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector <ll> vl;
+typedef pair<int,int> ii;
+typedef vector<ii> vii;
+
+int main()
+{
+    int a,b,c,x,y,z,ctr,ans;
+    ctr = ans = 0;
+
+    si(a);si(b);si(c);si(x);si(y);si(z);
+
+    if( a-x >= 0)
+        ctr += (a-x)/2;        
+    else
+        ans += a-x;
+    if( b-y > 0)
+        ctr += (b-y)/2;
+    else
+        ans += b-y;
+    if( c-z > 0)
+        ctr += (c-z)/2;
+    else
+        ans += c-z;
+
+    if( ans+ctr >= 0)
+        printf("Yes\n");
+    else
+        printf("No\n");
+    return 0;
+}
