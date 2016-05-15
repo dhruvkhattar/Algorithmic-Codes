@@ -37,23 +37,40 @@ typedef vector<ii> vii;
 
 int main()
 {
-    int x;
+    int t,n,m,s,x;
+    si(t);
+    while(t--)
+    {
+        vi v;
+        ll ans[1003][1003]={0};
 
-    pin(1);
-    pi(3);ps;pi(1);ps;pi(1);ps;pin(2);
-    pi(3);ps;pi(3);ps;pi(3);ps;pin(4);
-    fflush(stdout);
-    si(x);
-    pin(2);
-    if(x == 0)
-        pin(5);
-    else if(x == 1)
-        pin(2);
-    else if(x == 2)
-        pin(1);
-    else if(x == -1)
-        pin(4);
-    else
-        pin(3);
+        si(n);si(m);si(s);
+        rep(i,0,m)
+        {
+            si(x);
+            v.pb(x);
+        }
+        ans[0][s] = 1;
+        rep(i,1,1+m)
+        {
+            rep(j,1,1+n)
+            {
+                if(ans[i-1][j])
+                {
+                    if(j+v[i-1] <= n)
+                        ans[i][j+v[i-1]] = (ans[i][j+v[i-1]] + ans[i-1][j])%mod;
+                    if(j-v[i-1] > 0)
+                        ans[i][j-v[i-1]] = (ans[i][j-v[i-1]] + ans[i-1][j])%mod;
+                    
+                }
+            }
+        }
+
+        rep(i,1,1+n)
+        {
+            pl(ans[m][i]);ps;
+        }
+        pn;
+    }
     return 0;
 }
